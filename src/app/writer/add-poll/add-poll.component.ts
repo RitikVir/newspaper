@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth.service';
-import { PollService } from 'src/app/poll.service';
+import { PollService } from 'src/app/writer/poll.service';
 
 @Component({
   selector: 'app-add-poll',
