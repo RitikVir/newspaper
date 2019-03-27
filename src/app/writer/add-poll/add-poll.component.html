@@ -1,3 +1,15 @@
-<p>
-  add-poll works!
-</p>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <div class="form-group">
+      <label for="heading">Heading</label>
+      <input type="text" class="form-control" formControlName="heading" />
+      <label for="detail">Details</label>
+      <input type="text" class="form-control" formControlName="details" />
+      <label for="date">Last Date</label>
+      <input type="date" class="form-control" formControlName="lastDate" />
+      <label for="image">Image</label>
+      <input type="file" class="form-control" (change)="handleChange($event)" />
+      <button class="btn btn-primary">Add Poll</button>
+    </div>
+  </div>
+</form>
