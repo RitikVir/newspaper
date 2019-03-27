@@ -1,3 +1,29 @@
-<p>
-  add-story works!
-</p>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <div class="form-group">
+      <label for="heading">Heading</label>
+      <input
+        type="text"
+        formControlName="heading"
+        id="heading"
+        class="form-control"
+      />
+      <label for="description">Description</label>
+      <input
+        type="text"
+        formControlName="description"
+        id="description"
+        class="form-control"
+      />
+      <label for="image">Image</label>
+      <input
+        type="file"
+        (change)="onSelectImage($event)"
+        class="form-control"
+      />
+      <label for="story">Story</label>
+      <input type="text" formControlName="storyUrl" class="form-control" />
+      <button class="btn btn-primary">Add Story</button>
+    </div>
+  </div>
+</form>
