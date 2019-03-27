@@ -1,13 +1,27 @@
 <form [formGroup]="formgroup" (ngSubmit)="onSubmit()">
-
-    <div class="row">
-      <input type="text" formControlName="name" class="form-control" placeholder="Name*">
-    </div>
-    <div class="row">
-      <input type="email" formControlName="email" class="form-control" placeholder="Email*">
-    </div>
-    <div class="row">
-      <input type="tel" formControlName="phoneNumber" class="form-control" placeholder="Phone Number*">
-    </div>
-    <button type="submit" [disabled]="!this.formgroup.valid">Add Client</button>
-  </form>
+  <div class="row">
+    <input
+      type="text"
+      formControlName="name"
+      class="form-control"
+      placeholder="Name*"
+    />
+  </div>
+  <div class="row">
+    <input
+      type="email"
+      formControlName="email"
+      class="form-control"
+      placeholder="Email*"
+    />
+  </div>
+  <div class="row">
+    <input
+      type="tel"
+      formControlName="phoneNumber"
+      class="form-control"
+      placeholder="Phone Number*"
+    />
+  </div>
+  <button type="submit" [disabled]="!this.formgroup.valid">Add Client</button>
+</form>
