@@ -1,23 +1,34 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { LoginData, LoginToken } from './interfaces';
-import { HttpClient} from '@angular/common/http';
-import { environment} from '../../key';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../key';
+import { map } from 'rxjs/operators';
 
 const helper = new JwtHelperService();
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(
-    private http: HttpClient
-  ) {}
+  constructor(private http: HttpClient) {}
 
-  userLogin(loginInfo: LoginData):{
-    return this.http.post<LoginToken>(environment.API +'/login/',loginInfo).pipe(map(data =>{
-
-    }))
- }
+  doLogin(loginInfo: LoginData) {
+    return this.http
+      .post<LoginToken>(environment.API + '/login/', loginInfo)
+      .pipe(
+        map(data => {
+          if (!data.token) {
+            return data;
+          }
+          const token = JSON.stringify(data.token);
+          const decode = helper.decodeToken(token);
+          if (token) {
+            localStorage.setItem('token', token);
+          }
+          return decode;
+        })
+      );
+  }
 
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
@@ -28,5 +39,4 @@ export class AuthService {
     const decode = helper.decodeToken(token);
     return decode;
   }
-
 }

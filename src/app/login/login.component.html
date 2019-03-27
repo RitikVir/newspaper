@@ -1,13 +1,21 @@
 <form [formGroup]="formgroup" (ngSubmit)="onSubmit()">
   <div class="row">
-    <input type="tel" formControlName="phoneNumber" class="form-control" placeholder="phoneNumber*">
+    <input
+      type="tel"
+      formControlName="phoneNumber"
+      class="form-control"
+      placeholder="phoneNumber*"
+    />
   </div>
   <div class="row">
-  <input type="password" formControlName="password" class="form-control" placeholder="password">
-    </div>
-    <div class="row">
-      <button type="submit">Login</button>
-    </div>
+    <input
+      type="password"
+      formControlName="password"
+      class="form-control"
+      placeholder="password"
+    />
+  </div>
+  <div class="row">
+    <button type="submit" [disabled]="!this.formgroup.valid">Login</button>
+  </div>
 </form>
-
-

@@ -4,6 +4,7 @@ import { AddClientComponent } from './add-client/add-client.component';
 import { AddWriterComponent } from './add-writer/add-writer.component';
 import { AddStoryComponent } from './add-story/add-story.component';
 import { AddPollComponent } from './add-poll/add-poll.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'addclient', component: AddClientComponent },
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'addpoll',
     component: AddPollComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   }
 ];
 

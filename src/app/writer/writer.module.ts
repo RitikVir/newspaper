@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { WriterRoutingModule } from './writer-routing.module';
 import { AddStoryComponent } from './add-story/add-story.component';
 import { AddPollComponent } from './add-poll/add-poll.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [AddStoryComponent, AddPollComponent],
+  declarations: [AddStoryComponent, AddPollComponent, ProfileComponent],
   imports: [CommonModule, WriterRoutingModule]
 })
 export class WriterModule {}
