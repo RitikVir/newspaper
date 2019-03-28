@@ -6,13 +6,15 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PricingComponent } from './pricing/pricing.component';
 import { ClientRoutingModule } from './client-routing.module';
+import { ClientRootComponent } from './client-root/client-root.component';
 
 @NgModule({
   declarations: [
     RequestStoryComponent,
     RequestPollComponent,
     ProfileComponent,
-    PricingComponent
+    PricingComponent,
+    ClientRootComponent
   ],
   imports: [CommonModule, ReactiveFormsModule, FormsModule, ClientRoutingModule]
 })

@@ -8,9 +8,11 @@ import { AddStoryComponent } from './add-story/add-story.component';
 import { AddPollComponent } from './add-poll/add-poll.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminRootComponent } from './admin-root/admin-root.component';
+import { ClientRootComponent } from './client-root/client-root.component';
 
 @NgModule({
-  declarations: [AddClientComponent, AddWriterComponent, AddStoryComponent, AddPollComponent, ProfileComponent, AdminComponent],
+  declarations: [AddClientComponent, AddWriterComponent, AddStoryComponent, AddPollComponent, ProfileComponent, AdminComponent, AdminRootComponent, ClientRootComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, AdminRoutingModule]
 })
 export class AdminModule {}
