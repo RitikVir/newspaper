@@ -38,6 +38,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/client/profile']);
       } else if (data.role === 'user') {
         this.router.navigate(['/story']);
+      } else if (data.role === 'writer') {
+        this.router.navigate(['/writer']);
       } else {
         this.toastr.error('Invalid Credentials');
       }
