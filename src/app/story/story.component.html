@@ -1,7 +1,8 @@
 <div class="container">
-  <div class="card" style="width: 50rem;" *ngFor="let item of stories">
+  <div class="card" style="max-width: 1050px" *ngFor="let item of stories">
     <img
       class="card-img-top"
+      style="max-height: 450px;"
       [src]="getFileUrl(item.imageUrl)"
       alt="Card Image"
     />
@@ -21,6 +22,7 @@
         </button>
       </div>
       <p class="card-text">{{ item.detail }}</p>
+      <a href="{{ item.storyUrl }}" target="_blank">Read more</a>
     </div>
   </div>
 </div>
