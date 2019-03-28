@@ -27,6 +27,10 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {}
 
+  routeToSignUp() {
+    this.router.navigate(['/signup']);
+  }
+
   ngOnInit() {}
   onSubmit() {
     const loginInfo = this.formgroup.value;

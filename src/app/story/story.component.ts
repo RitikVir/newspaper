@@ -26,7 +26,8 @@ export class StoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loggedIn = this.auth.userInfo().role === 'user';
+    this.loggedIn =
+      this.auth.userInfo() && this.auth.userInfo().role === 'user';
     this.story.getActiveStories().subscribe(data => (this.stories = data));
   }
 }
