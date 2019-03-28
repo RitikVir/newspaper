@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card" style="width: 18rem;" *ngFor="let item of stories">
+  <div class="card" style="width: 50rem;" *ngFor="let item of stories">
     <img
       class="card-img-top"
       [src]="getFileUrl(item.imageUrl)"
@@ -8,7 +8,7 @@
     />
     <div class="card-body">
       <div class="card-title">
-        {{ item.heading }}
+        <b>{{ item.heading }}</b>
       </div>
       <p class="card-text">{{ item.detail }}</p>
     </div>
