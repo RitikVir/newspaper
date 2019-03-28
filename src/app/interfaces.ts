@@ -12,6 +12,7 @@ export interface RequestPollData {
 export interface RequestPollResponseData {
   _id: string;
   status: boolean;
+  comment: string;
 }
 export interface LoginData {
   phoneNumber: number;

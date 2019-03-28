@@ -18,7 +18,7 @@ export class ClientServService {
   }
 
   addImageToPoll(id, uploads) {
-    return this.http.post(
+    return this.http.post<{ status }>(
       environment.API + '/client/addpollimage/' + id,
       uploads
     );

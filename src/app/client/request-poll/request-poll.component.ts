@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormControl,Validators} from '@angular/forms';
-import { ClientServService} from '../client-serv.service';
-import { ToastrService} from 'ngx-toastr';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ClientServService } from '../client-serv.service';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-request-poll',
@@ -9,43 +10,57 @@ import { ToastrService} from 'ngx-toastr';
   styleUrls: ['./request-poll.component.css']
 })
 export class RequestPollComponent implements OnInit {
-
+  filename;
+  string = '';
   formgroup = new FormGroup({
     heading: new FormControl('', Validators.required),
-    detail: new FormControl('', [Validators.required, Validators.maxLength(300)]),
-    imageUrl: new FormControl('', Validators.required)
-  })
+    detail: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(300)
+    ]),
+    imageUrl: new FormControl()
+  });
+
   constructor(
     private getClientService: ClientServService,
-    private toastr: ToastrService
-  ) { }
+    private toastr: ToastrService,
+    private auth: AuthService
+  ) {}
 
-  ngOnInit() {
-  }
-  imageChanged(event){
-    if(event.target.files.length > 0){
+  ngOnInit() {}
+  imageChanged(event) {
+    if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.formgroup.get('imageUrl').setValue(file);
+      this.formgroup.updateValueAndValidity();
+      console.log(file);
+      this.filename = file.name;
+      console.log('Goneeeee ', this.formgroup.get('imageUrl').value);
     }
   }
+
   onSubmit() {
-
     const requestPollInfo = this.formgroup.value;
-    requestPollInfo.authorId = 1;
-    //give this field value of current login user
+    console.log(requestPollInfo);
+    requestPollInfo.authorId = this.auth.userInfo().userId;
     this.getClientService.requestPoll(requestPollInfo).subscribe(data => {
-      if(data.status){
+      console.log(data);
+      if (data.status) {
         const formData = new FormData();
-        formData.append('imageUrl', this.formgroup.get('imageUrl').value);
-        this.getClientService.addImageToPoll(data._id,formData).subscribe(response => {
-          console.log('@@@@@@@@@@@@', response);
-          this.toastr.success('Poll Request Made');
-        })
+        formData.append('someText', 'Hi There');
+        formData.append('imageUrl', this.formgroup.value.imageUrl);
+        this.getClientService
+          .addImageToPoll(data._id, formData)
+          .subscribe(response => {
+            if (response.status) {
+              this.toastr.success('Poll Request Made');
+              this.formgroup.reset();
+              this.filename = '';
+            }
+          });
+      } else {
+        this.toastr.error(data.comment);
       }
-    })
-
-    this.formgroup.reset();
+    });
   }
-
-
 }
