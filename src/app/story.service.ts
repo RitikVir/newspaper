@@ -15,4 +15,11 @@ export class StoryService {
   getActiveStories(): Observable<StoryInterface> {
     return this.http.get<StoryInterface>(`${this.uri}/story/activeStories`);
   }
+
+  addBookMark(info): Observable<{ success: boolean; message: string }> {
+    return this.http.post<{ success: boolean; message: string }>(
+      `${this.uri}/user/addBookMark`,
+      info
+    );
+  }
 }

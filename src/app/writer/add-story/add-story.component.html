@@ -1,29 +1,50 @@
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-  <div class="container">
-    <div class="form-group">
-      <label for="heading">Heading</label>
-      <input
-        type="text"
-        formControlName="heading"
-        id="heading"
-        class="form-control"
-      />
-      <label for="description">Description</label>
-      <input
-        type="text"
-        formControlName="detail"
-        id="description"
-        class="form-control"
-      />
-      <label for="image">Image</label>
-      <input
-        type="file"
-        (change)="onSelectImage($event)"
-        class="form-control"
-      />
-      <label for="story">Story</label>
-      <input type="text" formControlName="storyUrl" class="form-control" />
-      <button class="btn btn-primary">Add Story</button>
+  <div class="container table-bordered">
+    <div class="form-group" style="padding: 15px">
+      <div class="row">
+        <label for="heading" class="col-sm-2">Heading</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            formControlName="heading"
+            id="heading"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <label for="description" class="col-sm-2">Description</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            formControlName="detail"
+            id="description"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <label for="image" class="col-sm-2">Image</label>
+        <div class="col-sm-9">
+          <input
+            type="file"
+            (change)="onSelectImage($event)"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <label for="story" class="col-sm-2">Story Url</label>
+        <div class="col-sm-9">
+          <input type="text" formControlName="storyUrl" class="form-control" />
+        </div>
+      </div>
+      <button class="btn btn-primary" [disabled]="!this.formGroup.valid">
+        Add Story
+      </button>
     </div>
   </div>
 </form>

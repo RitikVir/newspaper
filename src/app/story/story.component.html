@@ -4,11 +4,19 @@
       class="card-img-top"
       [src]="getFileUrl(item.imageUrl)"
       alt="Card Image"
-      width="100%"
     />
     <div class="card-body">
-      <div class="card-title">
-        <b>{{ item.heading }}</b>
+      <div class="row">
+        <div class="card-title col-sm-10">
+          <b>{{ item.heading }}</b>
+        </div>
+        <button
+          class="btn btn-primary col-sm-2"
+          [disabled]="!loggedIn"
+          (click)="addBookMark(item._id)"
+        >
+          Bookmark
+        </button>
       </div>
       <p class="card-text">{{ item.detail }}</p>
     </div>

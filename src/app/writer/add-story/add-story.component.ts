@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth.service';
 import { StoryService } from '../story.service';
 
@@ -16,10 +16,10 @@ export class AddStoryComponent implements OnInit {
   ) {}
 
   formGroup = this.fb.group({
-    heading: new FormControl(),
-    detail: new FormControl(),
-    imageUrl: new FormControl(),
-    storyUrl: new FormControl()
+    heading: ['', Validators.required],
+    detail: ['', Validators.required],
+    imageUrl: ['', Validators.required],
+    storyUrl: ['', Validators.required]
   });
 
   onSelectImage(event) {
