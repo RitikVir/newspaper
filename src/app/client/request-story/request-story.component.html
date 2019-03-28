@@ -1,14 +1,44 @@
 <form [formGroup]="formgroup" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <input
+      type="text"
+      formControlName="heading"
+      class="form-control"
+      placeholder="Heading*"
+    />
+  </div>
+  <div class="row">
+    <input
+      type="text"
+      formControlName="detail"
+      class="form-control"
+      placeholder="Detail*"
+    />
+  </div>
+  <div class="row">
+    <button type="button" class="btn btn-default" (click)="fileUpload.click()">
+      File Upload
+    </button>
+    {{ filename }}
+  </div>
 
-    <div class="row">
-      <input type="text" formControlName="heading" class="form-control" placeholder="Heading*" >
-    </div>
-    <div class="row">
-      <input type="text" formControlName="detail" class="form-control" placeholder="Detail*" >
-    </div>
-    <div class="row">
-      <label for="imageUrl">Upload Image</label>
-      <input type="file" id="imageUrl" formControlName="imageUrl" class="form-control" (change)="imageChanged($event)" >
-    </div>
-    <button type="submit" [disabled]="!this.formgroup.valid">Create Poll</button>
+  <div class="row">
+    <input
+      type="file"
+      style="display: none;"
+      id="imageUrl"
+      class="form-control"
+      (change)="imageChanged($event)"
+      #fileUpload
+    />
+  </div>
+  <div class="row">
+    <input
+      type="text"
+      formControlName="storyUrl"
+      class="form-control"
+      placeholder="Story Url"
+    />
+  </div>
+  <button type="submit" [disabled]="!this.formgroup.valid">Create Poll</button>
 </form>

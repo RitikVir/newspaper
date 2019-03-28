@@ -32,10 +32,7 @@ export class RequestPollComponent implements OnInit {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.formgroup.get('imageUrl').setValue(file);
-      this.formgroup.updateValueAndValidity();
-      console.log(file);
       this.filename = file.name;
-      console.log('Goneeeee ', this.formgroup.get('imageUrl').value);
     }
   }
 
@@ -47,7 +44,6 @@ export class RequestPollComponent implements OnInit {
       console.log(data);
       if (data.status) {
         const formData = new FormData();
-        formData.append('someText', 'Hi There');
         formData.append('imageUrl', this.formgroup.value.imageUrl);
         this.getClientService
           .addImageToPoll(data._id, formData)

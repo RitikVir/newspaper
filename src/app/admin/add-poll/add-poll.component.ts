@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminServiceService } from '../admin-service.service';
 
 @Component({
   selector: 'app-add-poll',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-poll.component.css']
 })
 export class AddPollComponent implements OnInit {
-
-  constructor() { }
+  allPoll;
+  constructor(private getAdminService: AdminServiceService) {}
 
   ngOnInit() {
+    this.getAdminService.pendingPollRequest().subscribe(polls => {
+      this.allPoll = polls;
+    });
   }
-
 }

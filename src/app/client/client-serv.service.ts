@@ -16,7 +16,12 @@ export class ClientServService {
       data
     );
   }
-
+  requestStory(data): Observable<{ status }> {
+    return this.http.post<{ status }>(
+      environment.API + '/client/requeststory',
+      data
+    );
+  }
   addImageToPoll(id, uploads) {
     return this.http.post<{ status }>(
       environment.API + '/client/addpollimage/' + id,

@@ -29,7 +29,7 @@ export class AddStoryComponent implements OnInit {
   }
 
   onSubmit() {
-    let formData = new FormData();
+    const formData = new FormData();
     formData.append('heading', this.formGroup.value.heading);
     formData.append('detail', this.formGroup.value.detail);
     formData.append('imageUrl', this.formGroup.value.imageUrl);

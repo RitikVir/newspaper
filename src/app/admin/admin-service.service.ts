@@ -22,4 +22,10 @@ export class AdminServiceService {
       data
     );
   }
+  pendingStoryRequest() {
+    return this.http.get(environment.API + '/admin/publishstory');
+  }
+  pendingPollRequest() {
+    return this.http.get(environment.API + '/admin/publishpoll');
+  }
 }

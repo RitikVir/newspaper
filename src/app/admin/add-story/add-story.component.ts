@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminServiceService } from '../admin-service.service';
 
 @Component({
   selector: 'app-add-story',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-story.component.css']
 })
 export class AddStoryComponent implements OnInit {
-
-  constructor() { }
+  allStory;
+  constructor(private getAdminService: AdminServiceService) {}
 
   ngOnInit() {
+    this.getAdminService.pendingStoryRequest().subscribe(stories => {
+      this.allStory = stories;
+    });
   }
-
 }

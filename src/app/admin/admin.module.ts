@@ -7,9 +7,10 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AddStoryComponent } from './add-story/add-story.component';
 import { AddPollComponent } from './add-poll/add-poll.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
-  declarations: [AddClientComponent, AddWriterComponent, AddStoryComponent, AddPollComponent, ProfileComponent],
+  declarations: [AddClientComponent, AddWriterComponent, AddStoryComponent, AddPollComponent, ProfileComponent, AdminComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, AdminRoutingModule]
 })
 export class AdminModule {}
