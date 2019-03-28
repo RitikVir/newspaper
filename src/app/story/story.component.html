@@ -1,16 +1,28 @@
 <div class="container">
-  <div class="card" style="width: 50rem;" *ngFor="let item of stories">
+  <div class="card" style="max-width: 1050px" *ngFor="let item of stories">
     <img
       class="card-img-top"
+      style="max-height: 450px;"
       [src]="getFileUrl(item.imageUrl)"
       alt="Card Image"
-      width="100%"
     />
     <div class="card-body">
-      <div class="card-title">
-        <b>{{ item.heading }}</b>
+      <div class="row">
+        <div class="card-title col-sm-10">
+          <b>{{ item.heading }}</b>
+        </div>
+        <button
+          class="btn btn-primary col-sm-2"
+          [disabled]="!loggedIn"
+          (click)="addBookMark(item._id)"
+          data-toggle="tool-tip"
+          title="login to bookmark"
+        >
+          Bookmark
+        </button>
       </div>
       <p class="card-text">{{ item.detail }}</p>
+      <a href="{{ item.storyUrl }}" target="_blank">Read more</a>
     </div>
   </div>
 </div>
