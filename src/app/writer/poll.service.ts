@@ -15,7 +15,7 @@ export class PollService {
     pollData: FormData
   ): Observable<{ success: boolean; message: string }> {
     return this.http.post<{ success: boolean; message: string }>(
-      `${this.uri}/poll/addPoll`,
+      `${this.uri}/writer/addPoll`,
       pollData
     );
   }

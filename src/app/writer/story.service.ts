@@ -12,7 +12,7 @@ export class StoryService {
 
   addStory(storyInfo): Observable<{ success: boolean; message: string }> {
     return this.http.post<{ success: boolean; message: string }>(
-      `${this.uri}/story/addStory`,
+      `${this.uri}/writer/addStory`,
       storyInfo
     );
   }
