@@ -1,23 +1,40 @@
 <form [formGroup]="formgroup" (ngSubmit)="onSubmit()">
   <div class="container">
-    <div class="row">
-      <input
-        type="tel"
-        formControlName="phoneNumber"
-        class="form-control"
-        placeholder="phoneNumber*"
-      />
-    </div>
-    <div class="row">
-      <input
-        type="password"
-        formControlName="password"
-        class="form-control"
-        placeholder="password"
-      />
-    </div>
-    <div class="row">
-      <button type="submit" [disabled]="!this.formgroup.valid">Login</button>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">LOG IN</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <label for="tel" class="col-sm-2">Phone Number</label>
+          <div class="col-sm-8">
+            <input
+              type="tel"
+              formControlName="phoneNumber"
+              class="form-control"
+              placeholder="phoneNumber*"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <label for="ps" class="col-sm-2">Passowrd</label>
+          <div class="col-sm-8">
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              placeholder="password"
+            />
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!this.formgroup.valid"
+        >
+          Login
+        </button>
+      </div>
     </div>
   </div>
 </form>
