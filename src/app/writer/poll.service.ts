@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../key';
 
 import { Observable } from 'rxjs';
 
@@ -8,9 +9,11 @@ import { Observable } from 'rxjs';
 })
 export class PollService {
   constructor(private http: HttpClient) {}
-  public uri: string = 'http://localhost:5000/news';
+  public uri: string = environment.API;
 
-  addPoll(pollData): Observable<{ success: boolean; message: string }> {
+  addPoll(
+    pollData: FormData
+  ): Observable<{ success: boolean; message: string }> {
     return this.http.post<{ success: boolean; message: string }>(
       `${this.uri}/poll/addPoll`,
       pollData
