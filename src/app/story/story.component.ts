@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StoryService } from '../story.service';
+import { environment } from 'key';
 
 @Component({
   selector: 'app-story',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./story.component.css']
 })
 export class StoryComponent implements OnInit {
+  constructor(private story: StoryService) {}
 
-  constructor() { }
+  stories: any;
 
-  ngOnInit() {
+  getFileUrl(filename) {
+    return `${environment.API}/story/storyImage/${filename}`;
   }
 
+  ngOnInit() {
+    this.story.getActiveStories().subscribe(data => (this.stories = data));
+  }
 }

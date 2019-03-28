@@ -44,6 +44,10 @@ const routes: Routes = [
     loadChildren: './writer/writer.module#WriterModule',
     canActivate: [RoleGuardService],
     data: { expectedRole: 'writer' }
+  },
+  {
+    path: 'story',
+    component: StoryComponent
   }
 ];
 

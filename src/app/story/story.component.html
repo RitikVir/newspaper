@@ -1,3 +1,16 @@
-<p>
-  story works!
-</p>
+<div class="container">
+  <div class="card" style="width: 50rem;" *ngFor="let item of stories">
+    <img
+      class="card-img-top"
+      [src]="getFileUrl(item.imageUrl)"
+      alt="Card Image"
+      width="100%"
+    />
+    <div class="card-body">
+      <div class="card-title">
+        <b>{{ item.heading }}</b>
+      </div>
+      <p class="card-text">{{ item.detail }}</p>
+    </div>
+  </div>
+</div>

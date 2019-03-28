@@ -21,3 +21,14 @@ export interface LoginData {
 export interface LoginToken {
   token: object;
 }
+
+export interface StoryInterface {
+  views: number;
+  _id: string;
+  heading: string;
+  detail: string;
+  imageUrl: string;
+  authorId: string;
+  authorRole: string;
+  storyUrl: string;
+}
