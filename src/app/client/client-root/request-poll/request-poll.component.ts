@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ClientServService } from '../client-serv.service';
+import { ClientServService } from '../../client-serv.service';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../../../auth.service';
 
 @Component({
   selector: 'app-request-poll',

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PricingComponent } from './pricing/pricing.component';
-import { ProfileComponent } from './profile/profile.component';
-import { RequestPollComponent } from './request-poll/request-poll.component';
-import { RequestStoryComponent } from './request-story/request-story.component';
+import { PricingComponent } from './client-root/pricing/pricing.component';
+import { ProfileComponent } from './client-root/profile/profile.component';
+import { RequestPollComponent } from './client-root/request-poll/request-poll.component';
+import { RequestStoryComponent } from './client-root/request-story/request-story.component';
 
 const routes: Routes = [
   { path: 'pricing', component: PricingComponent },

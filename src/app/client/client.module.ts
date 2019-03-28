@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RequestStoryComponent } from './request-story/request-story.component';
-import { RequestPollComponent } from './request-poll/request-poll.component';
-import { ProfileComponent } from './profile/profile.component';
+import { RequestStoryComponent } from './client-root/request-story/request-story.component';
+import { RequestPollComponent } from './client-root/request-poll/request-poll.component';
+import { ProfileComponent } from './client-root/profile/profile.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { PricingComponent } from './pricing/pricing.component';
+import { PricingComponent } from './client-root/pricing/pricing.component';
 import { ClientRoutingModule } from './client-routing.module';
 import { ClientRootComponent } from './client-root/client-root.component';
 

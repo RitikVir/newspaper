@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BookmarkComponent } from './bookmark/bookmark.component';
-import { TopicComponent } from './topic/topic.component';
+import { BookmarkComponent } from './user-root/bookmark/bookmark.component';
+import { TopicComponent } from './user-root/topic/topic.component';
 
 const routes: Routes = [
   { path: 'bookmark', component: BookmarkComponent },

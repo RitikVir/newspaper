@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AddPollComponent } from './add-poll/add-poll.component';
-import { AddStoryComponent } from './add-story/add-story.component';
-import { ProfileComponent } from './profile/profile.component';
+import { AddPollComponent } from './writer-root/add-poll/add-poll.component';
+import { AddStoryComponent } from './writer-root/add-story/add-story.component';
+import { ProfileComponent } from './writer-root/profile/profile.component';
 
 const routes: Routes = [
   {

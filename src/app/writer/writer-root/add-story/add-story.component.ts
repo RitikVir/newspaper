@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth.service';
-import { StoryService } from '../story.service';
+import { StoryService } from '../../story.service';
 
 @Component({
   selector: 'app-add-story',
