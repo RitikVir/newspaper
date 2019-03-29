@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PollService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   public uri: string = environment.API;
 
   addPoll(
@@ -19,4 +19,12 @@ export class PollService {
       pollData
     );
   }
+
+  getPolls(params): Observable<{ count, result }> {
+
+    return this.http.post<{ count, result }>(`/api/poll`, params);
+  }
+
+
+
 }
