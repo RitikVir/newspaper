@@ -1,3 +1,28 @@
-<p>
-  poll works!
-</p>
+<div class="container">
+    <h2>Polls</h2>
+    <div *ngIf="!loading else spinner">
+        <div class="card">
+            <h3 class="text-center">
+                No. of Polls: {{pollDetails.count}}
+            </h3>
+        </div>
+        <div class="card" style="width: 100%;" *ngFor="let poll of polls">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img class="card-img-top" style="width:100%;" [src]="getFileUrl(poll.imageUrl)"
+                        alt="Card image cap">
+                </div>
+                <div class="col-lg-8  col-12">
+                    <div class="card-body">
+                        <h5 class="card-title"> <b>{{poll.heading}}</b></h5>
+                        <p class="card-text">{{poll.detail}}</p>
+                        <button type="button" class="poll-button btn-primary">Yes</button> &nbsp;
+                        <button type="button" class="poll-button btn-danger">No</button> &nbsp;
+                        <button type="button" class="poll-button btn-warning">Maybe</button> &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #spinner>Loading...</ng-template>

@@ -1,0 +1,19 @@
+
+.card{
+  background-color: #FFFDE7;
+  box-shadow: 1px 1px rgba(0,0,0,0.4);
+  margin: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+@media only screen and (max-width: 1000px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+  img {
+      height: 50% !important;
+      width: 100% !important;
+  }
+}

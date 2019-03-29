@@ -11,44 +11,26 @@
         <div class="row">
           <label for="tel" class="col-sm-2">Phone Number</label>
           <div class="col-sm-9">
-            <input
-              type="tel"
-              type="number"
-              formControlName="phoneNumber"
-              class="form-control"
-              placeholder="phoneNumber*"
-            />
+            <input type="tel" type="number" formControlName="phoneNumber" class="form-control"
+              placeholder="Phone Number" />
           </div>
         </div>
         <hr />
         <div class="row">
-          <label for="ps" class="col-sm-2">Passowrd</label>
+          <label for="ps" class="col-sm-2">Password</label>
           <div class="col-sm-9">
-            <input
-              type="password"
-              formControlName="password"
-              class="form-control"
-              placeholder="password"
-            />
+            <input type="password" formControlName="password" class="form-control" placeholder="password" />
           </div>
         </div>
         <br />
         <div class="text-center">
-          <button
-            type="submit"
-            class="btn btn-primary"
-            [disabled]="!this.formgroup.valid"
-          >
+          <button type="submit" class="btn btn-primary" [disabled]="!this.formgroup.valid">
             Login
           </button>
           <br />
           <br />
           New User?
-          <button
-            class="btn btn-danger"
-            type="button"
-            (click)="routeToSignUp()"
-          >
+          <button class="btn btn-danger" type="button" (click)="routeToSignUp()">
             Sign Up
           </button>
         </div>
