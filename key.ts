@@ -1,3 +1,4 @@
 export const environment = {
-  API: 'http://localhost:5000/api'
+  API: 'http://localhost:5000/api',
+  price: 10
 };

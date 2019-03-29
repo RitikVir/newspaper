@@ -10,7 +10,17 @@ const helper = new JwtHelperService();
   providedIn: 'root'
 })
 export class AuthService {
+  formString = '';
+
   constructor(private http: HttpClient) {}
+
+  setString(string) {
+    this.formString = string;
+  }
+
+  getString() {
+    return this.formString;
+  }
 
   doLogin(loginInfo: LoginData) {
     return this.http

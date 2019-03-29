@@ -11,9 +11,10 @@ import { StoryComponent } from './story/story.component';
 import { PollComponent } from './poll/poll.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { MakePaymentComponent } from './make-payment/make-payment.component';
 
 @NgModule({
-  declarations: [AppComponent, StoryComponent, PollComponent, LoginComponent, SignupComponent],
+  declarations: [AppComponent, StoryComponent, PollComponent, LoginComponent, SignupComponent, MakePaymentComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

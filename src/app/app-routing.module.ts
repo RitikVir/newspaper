@@ -6,6 +6,7 @@ import { RoleGuardService } from './role-guard.service';
 import { LoginComponent } from './login/login.component';
 import { LoginGuardService } from './login-guard.service';
 import { SignupComponent } from './signup/signup.component';
+import { MakePaymentComponent } from './make-payment/make-payment.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'makepayment',
+    component: MakePaymentComponent
   }
 ];
 

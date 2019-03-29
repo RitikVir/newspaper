@@ -28,4 +28,10 @@ export class ClientServService {
       uploads
     );
   }
+  makePayment(transactionInfo: any): Observable<{ formString }> {
+    return this.http.post<{ formString }>(
+      environment.API + '/client/makepayment',
+      transactionInfo
+    );
+  }
 }

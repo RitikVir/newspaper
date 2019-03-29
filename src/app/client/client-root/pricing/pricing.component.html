@@ -1,3 +1,15 @@
-<p>
-  pricing works!
-</p>
+<form [formGroup]="formgroup" (ngSubmit)="onSubmit()">
+  <p>One unit contains 10 story and 5 poll and cost {{ env.price }}</p>
+
+  <p>Select the number of units u need</p>
+
+  <input
+    type="number"
+    formControlName="units"
+    placeholder="Enter Units required"
+  />
+
+  <button type="submit">
+    Make Payment of {{ this.formgroup.get('units').value * env.price }} Rupees
+  </button>
+</form>
