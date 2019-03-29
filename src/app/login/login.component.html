@@ -1,41 +1,63 @@
-<form [formGroup]="formgroup" (ngSubmit)="onSubmit()">
-  <div class="container table-bordered" style="max-width: 800px">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title text-center" style="padding-top: 10px">
-          <b>LOG IN</b>
-        </h3>
-      </div>
-      <hr />
-      <div class="panel-body">
-        <div class="row">
-          <label for="tel" class="col-sm-2">Phone Number</label>
-          <div class="col-sm-9">
-            <input type="tel" type="number" formControlName="phoneNumber" class="form-control"
-              placeholder="Phone Number" />
-          </div>
-        </div>
-        <hr />
-        <div class="row">
-          <label for="ps" class="col-sm-2">Password</label>
-          <div class="col-sm-9">
-            <input type="password" formControlName="password" class="form-control" placeholder="password" />
-          </div>
-        </div>
-        <br />
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary" [disabled]="!this.formgroup.valid">
-            Login
-          </button>
-          <br />
-          <br />
-          New User?
-          <button class="btn btn-danger" type="button" (click)="routeToSignUp()">
-            Sign Up
-          </button>
-        </div>
-        <br />
-      </div>
-    </div>
+<div class="container d-flex justify-content-center outer-div" style=" max-width: 650px;">
+  <div class="container col-sm-6 img-div">
+    <img src="../../assets/img/login.svg" alt="image" />
   </div>
-</form>
+
+  <div class="col-sm-6 login-div">
+    <nav class="navbar-nav bg-light navbar-expand-sm">
+      <ul class="navbar navbar-nav">
+        <li class="nav-item">
+          <a (click)="openLogin()">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="openSignUp()">Sign Up</a>
+        </li>
+      </ul>
+    </nav>
+    <form [formGroup]="formGroup" *ngIf="currentComponent === 'login'; else signUp" (ngSubmit)="onSubmit()">
+      <div class="container">
+        <input type="text" formControlName="phoneNumber" class="form-control" placeholder="Phone Number" />
+      </div>
+      <div class="container">
+        <input type="text" formControlName="password" class="form-control" placeholder="Password" />
+      </div>
+      <div class="text-center container">
+        <button class="btn btn-default login-btn">
+          <i class="fas fa-user"></i>
+          <p>login</p>
+        </button>
+      </div>
+      <div class="container text-center">
+        <h6>Forgot Password?</h6>
+
+        <button class="btn btn-default google-btn">
+          <i class="fab fa-google"></i>
+          <p>Sign In With Google</p>
+        </button>
+      </div>
+    </form>
+    <ng-template #signUp>
+      <form [formGroup]="signUpForm" (ngSubmit)="onPressSignUp()">
+        <div class="container">
+          <input type="text" formControlName="name" class="form-control" placeholder="Full Name*" />
+        </div>
+        <div class="container">
+          <input type="text" formControlName="email" class="form-control" placeholder="Email*" />
+        </div>
+        <div class="container">
+          <input type="password" formControlName="password" class="form-control" placeholder="Password*" />
+        </div>
+        <div class="container">
+          <input type="number" formControlName="phoneNumber" class="form-control" placeholder="Phone Number*" />
+        </div>
+        <div class="text-center container">
+          <button class="btn btn-default login-btn" [disabled]="!signUpForm.valid">
+            <i class="fas fa-user"></i>
+            <p>Sign Up</p>
+          </button>
+          <h6>Have Otp?</h6>
+        </div>
+      </form>
+    </ng-template>
+  </div>
+</div>
