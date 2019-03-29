@@ -1,0 +1,133 @@
+body {
+  background-color: #f9f9f9;
+}
+
+.container {
+  margin-top: 5%;
+}
+
+.card-header {
+  padding: 5px 15px;
+}
+
+.profile-img {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.outer-div {
+  background-color: whitesmoke;
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 15px 14px 33px -17px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 15px 14px 33px -17px rgba(0, 0, 0, 1);
+  box-shadow: 15px 14px 33px -17px rgba(0, 0, 0, 1);
+}
+
+.outer-div .img-div {
+  margin-top: 0;
+}
+.outer-div .img-div img {
+  width: 280px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.outer-div .login-div {
+  padding: 10px;
+}
+
+.login-div nav {
+  background-color: whitesmoke !important;
+}
+
+.login-div nav ul {
+  width: 100%;
+  padding: 5px;
+}
+.login-div nav ul:first-child {
+  margin-left: 60px;
+  float: left;
+}
+
+.login-div nav ul:last-child {
+  float: right;
+  margin-right: 60px;
+}
+
+.login-div nav ul li {
+  padding: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.google-btn {
+  background-color: #fff;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.google-btn:hover {
+  -webkit-box-shadow: 15px 14px 33px -17px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 15px 14px 33px -17px rgba(0, 0, 0, 1);
+  box-shadow: 15px 14px 33px -17px rgba(0, 0, 0, 1);
+}
+
+.google-btn i {
+  color: #db4437;
+}
+.google-btn p {
+  text-transform: capitalize;
+  display: inline;
+  margin-left: 5px;
+}
+
+.login-btn {
+  color: #fff;
+  background-color: rgb(63, 151, 209);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.login-btn:hover {
+  -webkit-box-shadow: 15px 14px 33px -17px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 15px 14px 33px -17px rgba(0, 0, 0, 1);
+  box-shadow: 15px 14px 33px -17px rgba(0, 0, 0, 1);
+}
+
+.login-btn p {
+  display: inline;
+  margin-left: 10px;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+}
+
+nav ul li:hover {
+  background-color: rgb(63, 151, 209);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+nav ul li .active {
+  font-weight: bold;
+}
+
+h6 {
+  margin-top: 5px;
+}
+
+h6:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 15px 14px 33px -17px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 15px 14px 33px -17px rgba(0, 0, 0, 1);
+  box-shadow: 15px 14px 33px -17px rgba(0, 0, 0, 1);
+}

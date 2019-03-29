@@ -5,7 +5,6 @@ import { PollComponent } from './poll/poll.component';
 import { RoleGuardService } from './role-guard.service';
 import { LoginComponent } from './login/login.component';
 import { LoginGuardService } from './login-guard.service';
-import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
@@ -49,10 +48,6 @@ const routes: Routes = [
   {
     path: 'story',
     component: StoryComponent
-  },
-  {
-    path: 'signup',
-    component: SignupComponent
   }
 ];
 
