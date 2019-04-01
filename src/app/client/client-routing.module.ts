@@ -4,6 +4,7 @@ import { PricingComponent } from './client-root/pricing/pricing.component';
 import { ProfileComponent } from './client-root/profile/profile.component';
 import { RequestPollComponent } from './client-root/request-poll/request-poll.component';
 import { RequestStoryComponent } from './client-root/request-story/request-story.component';
+import { MakePaymentComponent } from './client-root/make-payment/make-payment.component';
 
 const routes: Routes = [
   { path: 'pricing', component: PricingComponent },
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'requeststory',
     component: RequestStoryComponent
+  },
+  {
+    path: 'makepayment',
+    component: MakePaymentComponent
   }
 ];
 

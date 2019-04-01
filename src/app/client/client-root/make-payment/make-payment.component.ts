@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { render } from 'render-html';
+import { AuthService } from '../../../auth.service';
+
 @Component({
   selector: 'app-make-payment',
   templateUrl: './make-payment.component.html',

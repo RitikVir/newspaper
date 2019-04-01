@@ -28,9 +28,9 @@ export class ClientServService {
       uploads
     );
   }
-  makePayment(transactionInfo: any): Observable<{ formString }> {
-    return this.http.post<{ formString }>(
-      environment.API + '/client/makepayment',
+  makePayment(transactionInfo: any): Observable<{ formString: string }> {
+    return this.http.post<{ formString: string }>(
+      environment.API + '/client/startpayment',
       transactionInfo
     );
   }

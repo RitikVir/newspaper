@@ -30,9 +30,8 @@ export class PricingComponent implements OnInit {
       userId: this.auth.userInfo().userId
     };
     this.getClientService.makePayment(transactionInfo).subscribe(data => {
-      console.log(data);
       this.auth.setString(data.formString);
-      this.router.navigate(['makepayment']);
+      this.router.navigate(['/client/makepayment']);
     });
   }
 }

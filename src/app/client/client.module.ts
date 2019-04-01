@@ -7,6 +7,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PricingComponent } from './client-root/pricing/pricing.component';
 import { ClientRoutingModule } from './client-routing.module';
 import { ClientRootComponent } from './client-root/client-root.component';
+import { MakePaymentComponent } from './client-root/make-payment/make-payment.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ClientRootComponent } from './client-root/client-root.component';
     RequestPollComponent,
     ProfileComponent,
     PricingComponent,
-    ClientRootComponent
+    ClientRootComponent,
+    MakePaymentComponent
   ],
   imports: [CommonModule, ReactiveFormsModule, FormsModule, ClientRoutingModule]
 })

@@ -10,17 +10,9 @@ import { AppComponent } from './app.component';
 import { StoryComponent } from './story/story.component';
 import { PollComponent } from './poll/poll.component';
 import { LoginComponent } from './login/login.component';
-<<<<<<< HEAD
-import { SignupComponent } from './signup/signup.component';
-import { MakePaymentComponent } from './make-payment/make-payment.component';
-
-@NgModule({
-  declarations: [AppComponent, StoryComponent, PollComponent, LoginComponent, SignupComponent, MakePaymentComponent],
-=======
 
 @NgModule({
   declarations: [AppComponent, StoryComponent, PollComponent, LoginComponent],
->>>>>>> c74967fad05f4d27bb7d55d8825ee7f010cb9661
   imports: [
     BrowserModule,
     AppRoutingModule,
