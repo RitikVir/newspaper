@@ -1,4 +1,4 @@
 export const environment = {
-  API: 'http://localhost:5000/api',
+  API: 'https://newsnode.herokuapp.com/api',
   price: 10
 };
