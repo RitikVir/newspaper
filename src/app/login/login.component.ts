@@ -9,6 +9,10 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SignupService } from '../signup.service';
+import {
+  AuthService as SocialAuthService,
+  GoogleLoginProvider
+} from 'angular-6-social-login';
 
 @Component({
   selector: 'app-login',
@@ -42,13 +46,22 @@ export class LoginComponent implements OnInit {
     ]
   });
 
+  socialAuthForm = this.fb.group({
+    phoneNumber: [
+      '',
+      [Validators.required, Validators.minLength(10), Validators.maxLength(10)]
+    ]
+  });
+
   currentComponent: string;
+  socialUserInfo: any;
   constructor(
     private toastr: ToastrService,
     private auth: AuthService,
     private router: Router,
     private fb: FormBuilder,
-    private signup: SignupService
+    private signup: SignupService,
+    private socialAuth: SocialAuthService
   ) {}
 
   openLogin() {
@@ -84,5 +97,38 @@ export class LoginComponent implements OnInit {
     this.signup
       .signUp(this.signUpForm.value)
       .subscribe(() => console.log('signup done'));
+  }
+
+  onPressSocialSignIn() {
+    this.socialAuth.signIn(GoogleLoginProvider.PROVIDER_ID).then(userData => {
+      // console.log(userData);
+      this.socialUserInfo = userData;
+      this.auth.checkIfAlreadyRegistered(userData.email).subscribe(data => {
+        console.log('token  ', data.token);
+        if (data.token !== null) {
+          localStorage.setItem('token', data.token.toString());
+        } else {
+          console.log('clicked');
+
+          document.getElementById('modalButton').click();
+        }
+      });
+    });
+  }
+
+  onFinishSocialSignIn() {
+    let userInfo = {
+      name: this.socialUserInfo.name,
+      email: this.socialUserInfo.email,
+      phoneNumber: this.socialAuthForm.value.phoneNumber
+    };
+    this.signup.socialSignUp(userInfo).subscribe(data => {
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+        this.router.navigate(['/user']);
+      } else {
+        alert('Error signing up');
+      }
+    });
   }
 }

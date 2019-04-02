@@ -4,6 +4,7 @@ import { LoginData, LoginToken } from './interfaces';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../key';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 const helper = new JwtHelperService();
 @Injectable({
@@ -38,6 +39,12 @@ export class AuthService {
           return decode;
         })
       );
+  }
+
+  checkIfAlreadyRegistered(email): Observable<{ token: string }> {
+    return this.http.get<{ token: string }>(
+      `${environment.API}/login/checkAlreadyRegistered/${email}`
+    );
   }
 
   public isAuthenticated(): boolean {

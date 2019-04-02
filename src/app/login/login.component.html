@@ -1,4 +1,7 @@
-<div class="container d-flex justify-content-center outer-div" style=" max-width: 650px;">
+<div
+  class="container d-flex justify-content-center outer-div"
+  style=" max-width: 650px;"
+>
   <div class="container col-sm-6 img-div">
     <img src="../../assets/img/login.svg" alt="image" />
   </div>
@@ -14,12 +17,26 @@
         </li>
       </ul>
     </nav>
-    <form [formGroup]="formGroup" *ngIf="currentComponent === 'login'; else signUp" (ngSubmit)="onSubmit()">
+    <form
+      [formGroup]="formGroup"
+      *ngIf="currentComponent === 'login'; else signUp"
+      (ngSubmit)="onSubmit()"
+    >
       <div class="container">
-        <input type="text" formControlName="phoneNumber" class="form-control" placeholder="Phone Number" />
+        <input
+          type="text"
+          formControlName="phoneNumber"
+          class="form-control"
+          placeholder="Phone Number"
+        />
       </div>
       <div class="container">
-        <input type="text" formControlName="password" class="form-control" placeholder="Password" />
+        <input
+          type="text"
+          formControlName="password"
+          class="form-control"
+          placeholder="Password"
+        />
       </div>
       <div class="text-center container">
         <button class="btn btn-default login-btn">
@@ -30,28 +47,103 @@
       <div class="container text-center">
         <h6>Forgot Password?</h6>
 
-        <button class="btn btn-default google-btn">
+        <button
+          class="btn btn-default google-btn"
+          type="button"
+          (click)="onPressSocialSignIn()"
+        >
           <i class="fab fa-google"></i>
           <p>Sign In With Google</p>
         </button>
+      </div>
+
+      <button
+        type="button"
+        id="modalButton"
+        class="btn btn-info btn-lg"
+        data-toggle="modal"
+        data-target="#myModal"
+        [hidden]="true"
+      >
+        Open Modal
+      </button>
+
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <form [formGroup]="socialAuthForm">
+              <div class="modal-header">
+                <h4 class="modal-title text-center">Enter your phone number</h4>
+              </div>
+              <div class="modal-body">
+                <label for="phoneNumber"><b>Phone Number</b></label>
+                <input
+                  type="text"
+                  formControlName="phoneNumber"
+                  class="form-control"
+                />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-default"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  [disabled]="!this.socialAuthForm.valid"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </form>
     <ng-template #signUp>
       <form [formGroup]="signUpForm" (ngSubmit)="onPressSignUp()">
         <div class="container">
-          <input type="text" formControlName="name" class="form-control" placeholder="Full Name*" />
+          <input
+            type="text"
+            formControlName="name"
+            class="form-control"
+            placeholder="Full Name*"
+          />
         </div>
         <div class="container">
-          <input type="text" formControlName="email" class="form-control" placeholder="Email*" />
+          <input
+            type="text"
+            formControlName="email"
+            class="form-control"
+            placeholder="Email*"
+          />
         </div>
         <div class="container">
-          <input type="password" formControlName="password" class="form-control" placeholder="Password*" />
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="Password*"
+          />
         </div>
         <div class="container">
-          <input type="number" formControlName="phoneNumber" class="form-control" placeholder="Phone Number*" />
+          <input
+            type="number"
+            formControlName="phoneNumber"
+            class="form-control"
+            placeholder="Phone Number*"
+          />
         </div>
         <div class="text-center container">
-          <button class="btn btn-default login-btn" [disabled]="!signUpForm.valid">
+          <button
+            class="btn btn-default login-btn"
+            [disabled]="!signUpForm.valid"
+          >
             <i class="fas fa-user"></i>
             <p>Sign Up</p>
           </button>
