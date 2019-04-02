@@ -13,5 +13,8 @@ export class MakePaymentComponent implements OnInit {
     console.log(this.auth.getString());
     this.str = this.auth.getString();
     document.getElementById('abc').innerHTML = this.str;
+
+    let inputFields = document.getElementById('f1') as HTMLFormElement;
+    inputFields.submit();
   }
 }
