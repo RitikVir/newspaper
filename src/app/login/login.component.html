@@ -72,7 +72,10 @@
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
-            <form [formGroup]="socialAuthForm">
+            <form
+              [formGroup]="socialAuthForm"
+              (ngSubmit)="onFinishSocialSignIn()"
+            >
               <div class="modal-header">
                 <h4 class="modal-title text-center">Enter your phone number</h4>
               </div>
@@ -96,6 +99,7 @@
                   class="btn btn-primary"
                   type="button"
                   [disabled]="!this.socialAuthForm.valid"
+                  (click)="onFinishSocialSignIn()"
                 >
                   Submit
                 </button>
