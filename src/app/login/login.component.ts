@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import {
   FormGroup,
   FormControl,
@@ -61,7 +62,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private signup: SignupService,
-    private socialAuth: SocialAuthService
+    private socialAuth: SocialAuthService,
+    private spinner: NgxSpinnerService
   ) {}
 
   openLogin() {
@@ -78,6 +80,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     const loginInfo = this.formGroup.value;
     this.auth.doLogin(loginInfo).subscribe(data => {
+      this.spinner.hide();
       console.log(data);
       if (data.role === 'admin') {
         this.router.navigate(['/admin/profile']);

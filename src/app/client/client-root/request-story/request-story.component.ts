@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ClientServService } from '../../client-serv.service';
 import { AuthService } from '../../../auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-request-story',
@@ -23,7 +24,8 @@ export class RequestStoryComponent implements OnInit {
   constructor(
     private getClientService: ClientServService,
     private auth: AuthService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit() {}
@@ -43,6 +45,7 @@ export class RequestStoryComponent implements OnInit {
     formData.append('authorId', this.auth.userInfo().userId);
 
     this.getClientService.requestStory(formData).subscribe(data => {
+      this.spinner.hide();
       if (!data.status) {
         this.toastr.error('Recharge ur Stories');
       } else {

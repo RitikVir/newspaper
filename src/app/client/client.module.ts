@@ -8,6 +8,8 @@ import { PricingComponent } from './client-root/pricing/pricing.component';
 import { ClientRoutingModule } from './client-routing.module';
 import { ClientRootComponent } from './client-root/client-root.component';
 import { MakePaymentComponent } from './client-root/make-payment/make-payment.component';
+import { PaymentStatusComponent } from './client-root/payment-status/payment-status.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,15 @@ import { MakePaymentComponent } from './client-root/make-payment/make-payment.co
     ProfileComponent,
     PricingComponent,
     ClientRootComponent,
-    MakePaymentComponent
+    MakePaymentComponent,
+    PaymentStatusComponent
   ],
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, ClientRoutingModule]
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ClientRoutingModule,
+    NgxSpinnerModule
+  ]
 })
 export class ClientModule {}

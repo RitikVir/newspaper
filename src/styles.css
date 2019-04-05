@@ -14,21 +14,21 @@ body {
 }
 
 .poll-button-yes {
-  background-color: #43A047;
+  background-color: #43a047;
 }
 .poll-button-maybe {
-  border: 1px solid #E65100;
-  background-color: #F57C00;
+  border: 1px solid #e65100;
+  background-color: #f57c00;
 }
 .poll-button-no {
   background-color: #f44336;
 }
-.poll-button-yes:hover{ 
-  background-color: #4CAF50;
+.poll-button-yes:hover {
+  background-color: #4caf50;
 }
-.poll-button-no:hover{
+.poll-button-no:hover {
   background-color: #ef5350;
 }
-.poll-button-maybe:hover{
-  background-color: #FB8C00;
+.poll-button-maybe:hover {
+  background-color: #fb8c00;
 }

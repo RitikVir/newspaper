@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminServiceService } from '../../admin-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-add-client',
@@ -19,12 +20,14 @@ export class AddClientComponent implements OnInit {
   });
   constructor(
     private getAdminService: AdminServiceService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) {}
   ngOnInit() {}
 
   onSubmit() {
     this.getAdminService.addClient(this.formgroup.value).subscribe(data => {
+      this.spinner.hide();
       if (data.status) {
         console.log('Added');
         this.toastr.success('Client Added with 10 story and 5 Poll');

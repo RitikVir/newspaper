@@ -5,6 +5,7 @@ import { PollComponent } from './poll/poll.component';
 import { RoleGuardService } from './role-guard.service';
 import { LoginComponent } from './login/login.component';
 import { LoginGuardService } from './login-guard.service';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,14 @@ const routes: Routes = [
     loadChildren: './writer/writer.module#WriterModule',
     canActivate: [RoleGuardService],
     data: { expectedRole: 'writer' }
+  },
+  {
+    path: 'test',
+    component: TestComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/login'
   }
 ];
 

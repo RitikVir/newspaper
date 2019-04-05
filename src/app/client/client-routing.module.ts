@@ -5,6 +5,7 @@ import { ProfileComponent } from './client-root/profile/profile.component';
 import { RequestPollComponent } from './client-root/request-poll/request-poll.component';
 import { RequestStoryComponent } from './client-root/request-story/request-story.component';
 import { MakePaymentComponent } from './client-root/make-payment/make-payment.component';
+import { PaymentStatusComponent } from './client-root/payment-status/payment-status.component';
 
 const routes: Routes = [
   { path: 'pricing', component: PricingComponent },
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'makepayment',
     component: MakePaymentComponent
+  },
+  {
+    path: 'paymentstatus/:status',
+    component: PaymentStatusComponent
   }
 ];
 

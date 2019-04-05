@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminServiceService } from '../../admin-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-add-writer',
@@ -19,13 +20,16 @@ export class AddWriterComponent implements OnInit {
   });
   constructor(
     private getAdminService: AdminServiceService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit() {}
 
   onSubmit() {
     this.getAdminService.addWriter(this.formgroup.value).subscribe(data => {
+      this.spinner.hide();
+
       if (data.status) {
         this.toastr.success('New Content Writer Added');
       } else {

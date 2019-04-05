@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ClientServService } from '../../client-serv.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from '../../../auth.service';
 
 @Component({
@@ -24,7 +25,8 @@ export class RequestPollComponent implements OnInit {
   constructor(
     private getClientService: ClientServService,
     private toastr: ToastrService,
-    private auth: AuthService
+    private auth: AuthService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit() {}
@@ -41,6 +43,7 @@ export class RequestPollComponent implements OnInit {
     console.log(requestPollInfo);
     requestPollInfo.authorId = this.auth.userInfo().userId;
     this.getClientService.requestPoll(requestPollInfo).subscribe(data => {
+      this.spinner.hide();
       console.log(data);
       if (data.status) {
         const formData = new FormData();
@@ -48,6 +51,7 @@ export class RequestPollComponent implements OnInit {
         this.getClientService
           .addImageToPoll(data._id, formData)
           .subscribe(response => {
+            this.spinner.hide();
             if (response.status) {
               this.toastr.success('Poll Request Made');
               this.formgroup.reset();

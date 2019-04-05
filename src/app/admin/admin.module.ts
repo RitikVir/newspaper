@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { AddClientComponent } from './admin-root/add-client/add-client.component';
 import { AddWriterComponent } from './admin-root/add-writer/add-writer.component';
 import { AdminRoutingModule } from './admin-routing.module';
@@ -18,6 +19,12 @@ import { AdminRootComponent } from './admin-root/admin-root.component';
     ProfileComponent,
     AdminRootComponent
   ],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, AdminRoutingModule]
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxSpinnerModule,
+    AdminRoutingModule
+  ]
 })
 export class AdminModule {}

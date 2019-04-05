@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../key';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 const helper = new JwtHelperService();
 @Injectable({
@@ -13,7 +14,7 @@ const helper = new JwtHelperService();
 export class AuthService {
   formString = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private spinner: NgxSpinnerService) {}
 
   setString(string) {
     this.formString = string;
@@ -24,6 +25,7 @@ export class AuthService {
   }
 
   doLogin(loginInfo: LoginData) {
+    this.spinner.show();
     return this.http
       .post<LoginToken>(environment.API + '/login/', loginInfo)
       .pipe(

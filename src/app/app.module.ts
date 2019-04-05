@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SocialLoginModule, AuthServiceConfig } from 'angular-6-social-login';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,9 +14,10 @@ import { PollComponent } from './poll/poll.component';
 import { LoginComponent } from './login/login.component';
 
 import { getAuthServiceConfigs } from './authServiceConfigs';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
-  declarations: [AppComponent, StoryComponent, PollComponent, LoginComponent],
+  declarations: [AppComponent, StoryComponent, PollComponent, LoginComponent, TestComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +25,7 @@ import { getAuthServiceConfigs } from './authServiceConfigs';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot({
       timeOut: 1000
     }),
